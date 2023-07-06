@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  api-db:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: api-db
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Senh@Secreta123456
+    restart: always
+    ports:
+      - 1433:1433
+    volumes:
+      - sql-data:/var/opt/mssql  
+
+volumes:
+  sql-data:
